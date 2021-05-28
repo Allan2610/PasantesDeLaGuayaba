@@ -1,0 +1,26 @@
+%p#notice= notice
+%h1 Entrenadores
+.float-left
+  = link_to  pokemon_index_path do
+    .btn.btn-primary
+      = 'Atras'
+.float-right
+  = link_to new_trainer_path do
+    .btn.btn-primary
+      = 'Nuevo Entrenador'
+%br
+%table.table.table-striped
+  %thead
+    %tr
+      %th{:colspan => "3"}= 'Nombre'
+      %th{:colspan => "3"}= 'Apellido'
+      %th.text-center{:colspan => "3"}= "# Pokemons"
+
+
+
+  %tbody
+    - @trainers.each do |trainer|
+      %tr
+        %td{:colspan => "3"}= trainer.nombre
+        %td{:colspan => "3"}= trainer.apellido
+        %td.text-center{:colspan => "3"}= trainer.cantidad_pokemons

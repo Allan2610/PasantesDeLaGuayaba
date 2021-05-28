@@ -1,0 +1,19 @@
+%p#notice= notice
+%h1 Pokemons
+.float-left
+  = link_to  pokemon_index_path do
+    .btn.btn-primary
+      = 'Atras'
+%table.table.table-striped
+  %thead
+    %tr
+      %th{:colspan => "3"} Version del api
+      %th.text-center{:colspan => "3"} Nombre
+      %th.text-center{:colspan => "3"} Tipo primario
+      %th.text-center{:colspan => "3"} Tipo secundario
+  %tbody
+    %tr
+      %td{:colspan => "3"}= @version_API.split('/')[-3]
+      %td.text-center{:colspan => "3"}= @nombre.titleize
+      %td.text-center{:colspan => "3"}= @tipo_primario.titleize
+      %td.text-center{:colspan => "3"}= @tipo_secundario.present? ? @tipo_secundario.titleize: 'No tiene'
